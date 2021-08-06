@@ -1,0 +1,17 @@
+<ng-container *ngIf="(address.personId ==0)">
+    <p class="text-info text-center">Nothing here to show !</p>
+</ng-container>
+<div class="accordion accordion" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="{{address.id}}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" attr.data-bs-target="#flush_{{address.id}}" aria-expanded="true" aria-controls="flush-collapseOne">
+        {{address.title}}
+      </button>
+        </h2>
+        <div id="flush_{{address.id}}" class="accordion-collapse collapse show" attr.aria-labelledby="{{address.id}}" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                {{address.description}}
+            </div>
+        </div>
+    </div>
+</div>

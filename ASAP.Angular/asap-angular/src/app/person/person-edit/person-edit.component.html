@@ -1,0 +1,54 @@
+<form [formGroup]="editPersonForm" (ngSubmit)="update()">
+    <div class="row">
+        <div class="mb-3">
+            <label for="" class="form-label"></label>
+            <input type="text" formControlName="firstName" class="form-control" placeholder="" aria-describedby="helpfirstname" [class.is-invalid]="editPersonForm.get('firstName')?.errors && editPersonForm.get('firstName')?.touched">
+            <small id="helpfirstname" class="text-muted">Enter your first name</small>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('firstName')?.hasError('required')">
+                Please Enter your first name
+            </div>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('firstName')?.hasError('minlength')">
+                first name should be at least 4 characters
+            </div>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('firstName')?.hasError('maxlength')">
+                first name must not exceed 200 character
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label"></label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="" aria-describedby="helplastname" [class.is-invalid]="editPersonForm.get('lastname')?.errors && editPersonForm.get('lastname')?.touched">
+            <small id=" helplastname " class="text-muted">enter your last name</small>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('lastName')?.hasError('required')">
+                Please Enter your first name
+            </div>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('lastName')?.hasError('minlength')">
+                first name should be at least 4 characters
+            </div>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('lastName')?.hasError('maxlength')">
+                first name must not exceed 200 character
+            </div>
+        </div>
+        <div class="mb-3 ">
+            <label for=" " class="form-label"></label>
+            <input type="date" formControlName="dateOfBirth" class="form-control" aria-describedby="helpdob " useValueAsLocalDate>
+            <small id="helpdob" class="text-muted">enter date of birth</small>
+        </div>
+        <div class="mb-3 ">
+            <label for=" " class="form-label "></label>
+            <textarea formControlName="biography" class="form-control " rows="5 "> </textarea>
+            <small id="helpdob " class="text-muted ">Describe yourself</small>
+            <div class="invalid-feedback" *ngIf="editPersonForm.get('biography')?.hasError('maxlength')">
+                first name must not exceed 2000 character
+            </div>
+        </div>
+
+        <div class="mb-3 ">
+            <label for=" " class="form-label ">Upload Image</label>
+            <input type="file" class="form-control" formControlName="file" placeholder="" aria-describedby="fileHelpfile" (change)="onFileChange($event) ">
+            <small id="fileHelpId " class="form-text text-muted ">Upload a profile picture</small>
+        </div>
+        <div class="mb-3 ">
+            <button type="submit" class="btn btn-primary text-white" [disabled]="!editPersonForm.dirty">Save Changes</button>
+        </div>
+    </div>
+</form>

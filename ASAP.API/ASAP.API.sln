@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASAP.API", "ASAP.API\ASAP.API.csproj", "{B5E84DD8-ED7A-48E5-BD89-D0FE0759F28C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5E84DD8-ED7A-48E5-BD89-D0FE0759F28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E84DD8-ED7A-48E5-BD89-D0FE0759F28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E84DD8-ED7A-48E5-BD89-D0FE0759F28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E84DD8-ED7A-48E5-BD89-D0FE0759F28C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F66CC2A1-13DD-474C-A3A2-52A023E06A71}
+	EndGlobalSection
+EndGlobal

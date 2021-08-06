@@ -1,0 +1,24 @@
+<div class="card">
+    <img *ngIf="!person.imageUrl" src="./assets/images/unknown.jfif" class="card-img-top" alt="...">
+    <img *ngIf="person.imageUrl" src="{{baseImageUrl}}{{person.imageUrl}}" class="card-img-top" alt="{{person.imageUrl}}">
+    <div class="card-body">
+        <h5 class="card-title">{{person.firstName}} {{person.lastName}}</h5>
+        <p> {{person.dateOfBirth | date}}</p>
+
+        <p class="card-text">
+            {{person.biography | slice:0:200}} ...
+        </p>
+    </div>
+    <div class="card-footer border-top-0 d-flex justify-content-between">
+        <a routerLink="/person/{{person.id}}" class="text-info">
+            <i class="fa fa-info"></i>
+        </a>
+        <a href="#" class="text-primary">
+            <i class="fa fa-edit"></i>
+        </a>
+        <a href="#" class="text-danger">
+            <i class="fa fa-trash"></i>
+        </a>
+
+    </div>
+</div>

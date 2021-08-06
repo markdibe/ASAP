@@ -1,0 +1,19 @@
+img {
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.card {
+    box-shadow: 0 0 1px 1px rgba(114, 113, 113, 0.6);
+}
+
+.card:hover {
+    box-shadow: 0 0 2px 2px rgba(114, 113, 113, 0.6);
+}
+
+img:hover {
+    transform: scale;
+    transition-duration: 500ms;
+    transition-property: opacity max-height;
+    border-radius: 10%;
+}

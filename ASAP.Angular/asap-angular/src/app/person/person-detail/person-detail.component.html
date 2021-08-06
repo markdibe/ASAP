@@ -1,0 +1,77 @@
+<div *ngIf="!person">
+    <h1 class="text-center text-info">Please Wait ....</h1>
+</div>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center" *ngIf="person">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img *ngIf="!person.imageUrl" src="./assets/images/unknown.jfif" class="card-img-top" alt="...">
+                <img *ngIf="person.imageUrl" src="{{baseImageUrl}}{{person.imageUrl}}" class="card-img-top" alt="{{person.firstName}} {{person.lastName}}">
+                <div class="card-body">
+                    <h5 class="card-title">Basic Informations</h5>
+                    <hr>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-5">First Name:</div>
+                                <div class="col-7">{{person.firstName}}</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-5">Last Name:</div>
+                                <div class="col-7">{{person.lastName}}</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-5">Date Of Birth:</div>
+                                <div class="col-7">{{person.dateOfBirth | date}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <a class="btn btn-dark" routerLink="/people">Go Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 ">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs|pills" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link btn-primary text-white" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Biography</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link btn-primary text-white" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Addresses</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link btn-primary text-white" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Edit</button>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content mb-5">
+                <div class="tab-pane active mt-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h5 class="text-left">{{person.biography}}</h5>
+                </div>
+                <div class="tab-pane mt-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <ng-container *ngIf="person.addresses.length>0">
+                        <ng-container *ngFor="let address of person.addresses">
+                            <app-address-info [address]="address"></app-address-info>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="person.addresses.length<=0">
+                        <p class="text-center text-info">No Addresses for {{person.firstName}} {{person.lastName}} !</p>
+                    </ng-container>
+                </div>
+                <div class="tab-pane mt-4" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                    <app-person-edit [person]="person"></app-person-edit>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
